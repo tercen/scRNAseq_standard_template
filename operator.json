@@ -1,0 +1,67 @@
+{
+  "name": "scRNAseq Standard Template",
+  "description": "A template workflow for basic scRNAseq data analysis using Cell Ranger data.",
+  "tags": [
+    "scRNAseq",
+    "single-cell",
+    "workflow",
+    "data analysis"
+  ],
+  "authors": [
+    "tercen"
+  ],
+  "urls": [
+    "https://github.com/tercen/scRNAseq_standard_template"
+  ],
+  "container": "ghcr.io/tercen/scRNAseq_standard_template:specs",
+  "properties": [],
+  "operatorSpec": {
+    "kind": "OperatorSpec",
+    "ontologyUri": "https://tercen.com/_ontology/tercen",
+    "ontologyVersion": "0.0.1",
+    "inputSpecs": [
+      {
+        "kind": "CrosstabSpec",
+        "metaFactors": [
+          {
+            "kind": "MetaFactor",
+            "name": "Genes",
+            "type": "",
+            "description": "Gene identifiers",
+            "ontologyMapping": "variable",
+            "crosstabMapping": "row",
+            "cardinality": "1..n",
+            "factors": []
+          },
+          {
+            "kind": "MetaFactor",
+            "name": "Cells",
+            "type": "",
+            "description": "Cell or observation identifiers",
+            "ontologyMapping": "observation",
+            "crosstabMapping": "column",
+            "cardinality": "1..n",
+            "factors": []
+          }
+        ],
+        "axis": [
+          {
+            "kind": "AxisSpec",
+            "metaFactors": [
+              {
+                "kind": "MetaFactor",
+                "name": "Expression",
+                "type": "numeric",
+                "description": "Gene expression measurements",
+                "ontologyMapping": "measurement",
+                "crosstabMapping": "y",
+                "cardinality": "1",
+                "factors": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
